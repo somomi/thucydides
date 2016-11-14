@@ -28,51 +28,51 @@ public class ApplicationBehaves {
     NavigationSteps navigationSteps;
 
     @When("user open my applications page")
-    public void open_my_applications_page () {
-        applicationSteps.open_my_applications_page();
+    public void openMyApplicationsPage() {
+        applicationSteps.openMyApplicationsPage();
     }
 
     @When ("user open new application page")
-    public void open_new_application_page () {
-        applicationSteps.open_new_applications_page();
+    public void openNewApplicationPage() {
+        applicationSteps.openNewApplicationsPage();
     }
 
     @Then("user see text '$title'")
-    public void should_see_new_application_text (String title) {
-        applicationSteps.check_new_application_text(title);
+    public void shouldSeeNewApplicationText(String title) {
+        applicationSteps.checkNewApplicationText(title);
     }
 
     @Then ("my application link should exist = '$exist'")
-    public void is_my_app_link_exist (Boolean exist) {
-        applicationSteps.is_my_app_link_exist(exist);
+    public void isMyAppLinkExist(Boolean exist) {
+        applicationSteps.isMyAppLinkExist(exist);
     }
 
     @When ("user create new application without images")
-    public void create_new_application_without_images () {
+    public void createNewApplicationWithoutImages() {
         appNewNoImages = ApplicationBuilder.newAppNoImages();
-        applicationSteps.open_new_applications_page();
-        applicationSteps.create_new_application(appNewNoImages);
+        applicationSteps.openNewApplicationsPage();
+        applicationSteps.createNewApplication(appNewNoImages);
     }
 
     @Then ("user can see application '$title' on home page")
-    public void see_application_by_title (String title) {
-        navigationSteps.open_home_page();
-        applicationSteps.validate_application_by_title(title);
+    public void seeApplicationByTitle(String title) {
+        navigationSteps.openHomePage();
+        applicationSteps.validateApplicationByTitle(title);
     }
 
     @When ("user open application '$string' details")
     public void open_application_details (String title) {
-        applicationSteps.open_application_details(title);
+        applicationSteps.openApplicationDetails(title);
     }
 
     @When ("user download application")
-    public void open_download_page () throws ParseException {
-        applicationSteps.open_download_page();
-        tempApp = applicationSteps.get_data_from_download_page();
+    public void openDownloadPage() throws ParseException {
+        applicationSteps.openDownloadPage();
+        tempApp = applicationSteps.getDataFromDownloadPage();
     }
 
     @Then ("user see correct application with title '$title', description '$description', category '$category', downloads '$downloads'")
-    public void validate_downloaded_application_data (String title, String description, String category, String downloads) {
+    public void validateDownloadedApplicationData(String title, String description, String category, String downloads) {
         assertThat ("Application title matched", tempApp.getTitle(), is(title));
         assertThat ("Application description matched", tempApp.getDescription(), is(description));
         assertThat ("Application category matched", tempApp.getCategory(), is(category));
@@ -82,54 +82,54 @@ public class ApplicationBehaves {
     }
 
     @When ("user open edit applications page")
-    public void open_edit_applications_page () {
-        applicationSteps.open_edit_application_page();
+    public void openEditApplicationsPage() {
+        applicationSteps.openEditApplicationPage();
     }
 
     @When ("user edit application without images")
-    public void edit_application_without_images () {
+    public void editApplicationWithoutImages() {
         appEditNoImages = ApplicationBuilder.editAppNoImages();
-        applicationSteps.edit_application(appEditNoImages);
+        applicationSteps.editApplication(appEditNoImages);
     }
 
     @When ("user create new application with images")
-    public void create_new_application_with_images () {
+    public void createNewApplicationWithImages() {
         appNewImages = ApplicationBuilder.newAppWithImages();
-        applicationSteps.open_new_applications_page();
-        applicationSteps.create_new_application(appNewImages);
+        applicationSteps.openNewApplicationsPage();
+        applicationSteps.createNewApplication(appNewImages);
     }
 
     @When ("user create new popular application")
-    public void create_new_application_popular () {
+    public void createNewApplicationPopular() {
         appNewPopular = ApplicationBuilder.newPopularApp();
-        applicationSteps.open_new_applications_page();
-        applicationSteps.create_new_application(appNewPopular);
+        applicationSteps.openNewApplicationsPage();
+        applicationSteps.createNewApplication(appNewPopular);
     }
 
     @When ("user download application '$app', '$num' times")
-    public void download_app_n_times (String title, Integer num) throws ParseException {
+    public void downloadAppNTimes(String title, Integer num) throws ParseException {
 
         for(int x = 1; x < num; x = x+1) {
-            navigationSteps.open_home_page();
-            applicationSteps.open_application_details(title);
-            applicationSteps.open_download_page();
-            navigationSteps.opens_the_login_page ();
-            navigationSteps.enter_the_username_and_password("admin", "admin");
+            navigationSteps.openHomePage();
+            applicationSteps.openApplicationDetails(title);
+            applicationSteps.openDownloadPage();
+            navigationSteps.opensTheLoginPage();
+            navigationSteps.enterTheUsernameAndPassword("admin", "admin");
         }
-        applicationSteps.open_my_popular_application_details(title);
-        applicationSteps.open_download_page();
-        tempApp = applicationSteps.get_data_from_download_page();
+        applicationSteps.openMyPopularApplicationDetails(title);
+        applicationSteps.openDownloadPage();
+        tempApp = applicationSteps.getDataFromDownloadPage();
     }
 
     @When ("user delete application '$app'")
-    public void delete_application (String app) {
-        applicationSteps.open_application_details(app);
-        applicationSteps.delete_application();
+    public void deleteApplication(String app) {
+        applicationSteps.openApplicationDetails(app);
+        applicationSteps.deleteApplication();
     }
 
     @Then ("user can't see application '$title' on home page")
-    public void not_see_application_by_title (String title) {
-        navigationSteps.open_home_page();
-        applicationSteps.validate_that_application_removed_by_title(title);
+    public void notSeeApplicationByTitle(String title) {
+        navigationSteps.openHomePage();
+        applicationSteps.validateThatApplicationRemovedByTitle(title);
     }
 }

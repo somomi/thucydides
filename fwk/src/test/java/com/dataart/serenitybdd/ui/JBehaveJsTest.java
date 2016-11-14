@@ -1,4 +1,4 @@
-package com.dataart.serenitybdd.ui.test;
+package com.dataart.serenitybdd.ui;
 
 
 import net.serenitybdd.jbehave.SerenityStory;
@@ -6,9 +6,8 @@ import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
 import org.jbehave.core.embedder.StoryControls;
 
-public class JBehaveTestCase extends SerenityStory {
-    public JBehaveTestCase() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/webDrivers/chromedriver.exe");
+public class JBehaveJsTest extends SerenityStory {
+    public JBehaveJsTest() {
         Configuration configuration = new MostUsefulConfiguration()
                 .useStoryControls(new StoryControls().doResetStateBeforeScenario(false));
         findStoriesCalled("**/stories/JS.story");

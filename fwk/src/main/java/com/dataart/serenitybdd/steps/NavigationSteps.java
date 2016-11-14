@@ -26,19 +26,19 @@ public class NavigationSteps extends ScenarioSteps {
     JSWebPage jsPage;
 
     @Step
-    public void logout_from_app () {
+    public void logoutFromApp() {
         loginPage.logoutFromHomePage();
     }
 
-    @Step
-    public void opens_the_login_page() {
+//    @Step
+    public void opensTheLoginPage() {
         loginPage.openLoginPage();
         loginPage.logoutFromHomePage();
     }
 
     @Step
     @Screenshots(onlyOnFailures=true)
-    public void enter_the_username_and_password (String username, String password) {
+    public void enterTheUsernameAndPassword(String username, String password) {
         user = admin();
         user.setUsername(username);
         user.setPassword(password);
@@ -46,56 +46,56 @@ public class NavigationSteps extends ScenarioSteps {
     }
 
     @Step
-    public void see_welcome_page (String msg) {
+    public void seeWelcomePage(String msg) {
         assertThat(homePage.getWelcomeMessage(), is(msg));
     }
 
     @Step
-    public void see_message_on_the_login_page (String msg) {
+    public void seeMessageOnTheLoginPage(String msg) {
         loginPage.waitForMessage(msg);
     }
 
     @Step
-    public void opens_the_register_user_page() {
+    public void opensTheRegisterUserPage() {
         loginPage.registerNewUserLink();
     }
 
     @Step
-    public void open_home_page () {
+    public void openHomePage() {
         homePage.openHomePage();
     }
 
     @Step
-    public void open_js_page () {
+    public void openJsPage() {
         homePage.openJSPage();
     }
 
     @Step
-    public void enter_coordinates_on_js_page () {
+    public void enterCoordinatesOnJsPage() {
         jsPage.enterCoordinates(jsPage.getTopCoordinates(), jsPage.getLeftCoordinates());
     }
 
     @Step
-    public void wait_for_alert_on_js_page (String result) {
+    public void waitForAlertOnJsPage(String result) {
         assertThat(jsPage.getAlertMessage(), is(result));
     }
 
     @Step
-    public void open_ajax_page () {
+    public void openAjaxPage() {
         homePage.openAjaxPage();
     }
 
     @Step
-    public void enter_values_on_ajax_page (String first, String second) {
+    public void enterValuesOnAjaxPage(String first, String second) {
         ajaxPage.enterValuesAndPressSum(first, second);
     }
 
     @Step
-    public void wait_for_results_on_ajax_page (String result) {
+    public void waitForResultsOnAjaxPage(String result) {
         ajaxPage.waitForResults (result);
     }
 
-    public void enter_coordinates_on_js_page_and_wait_for_alert(String result) {
+    public void enterCoordinatesOnJsPageAndWaitForAlert(String result) {
         String alert = jsPage.enterCoordinatesAndWaitForAlert(jsPage.getTopCoordinates(), jsPage.getLeftCoordinates());
         assertThat(result, is(alert));
     }

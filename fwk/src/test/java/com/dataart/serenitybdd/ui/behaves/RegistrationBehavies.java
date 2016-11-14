@@ -17,16 +17,16 @@ public class RegistrationBehavies {
     RegistrationSteps registrationSteps;
 
     @When("user register a simple user")
-    public void register_new_user ()
+    public void registerNewUser()
     {
 
-        registrationSteps.register_new_user();
+        registrationSteps.registerNewUser();
     }
 
     @When ("user register a developer user")
-    public void register_new_dev ()
+    public void registerNewDev()
     {
-        registrationSteps.register_new_dev();
+        registrationSteps.registerNewDeveloper();
     }
 
 }

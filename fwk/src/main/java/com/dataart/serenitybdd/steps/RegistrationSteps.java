@@ -19,13 +19,13 @@ public class RegistrationSteps extends ScenarioSteps {
 
 
     @Step
-    public void register_new_user () {
+    public void registerNewUser() {
         user = getUser();
         registerPage.registerNewUser(user);
     }
 
     @Step
-    public void register_new_dev () {
+    public void registerNewDeveloper() {
         user = getDeveloper();
         registerPage.registerNewUser(user);
     }

@@ -31,9 +31,9 @@ public class JSWebPage extends PageObject {
 
     public String getAlertMessage() {
         Alert alert = getDriver().switchTo().alert();
-        String AlertText = alert.getText();
+        String alertText = alert.getText();
         alert.accept();
-        return AlertText;
+        return alertText;
     }
 
 
@@ -53,8 +53,8 @@ public class JSWebPage extends PageObject {
         leftInput.sendKeys (Integer.toString (left));
         processButton.click();
         Alert alert = getDriver().switchTo().alert();
-        String AlertText = alert.getText();
+        String alertText = alert.getText();
         alert.accept();
-        return AlertText;
+        return alertText;
     }
 }
