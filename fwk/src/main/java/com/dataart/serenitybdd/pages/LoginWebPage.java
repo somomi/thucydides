@@ -17,7 +17,7 @@ public class LoginWebPage extends PageObject {
     WebElementFacade userNameTextField;
     @FindBy(xpath = "//input[@id='j_password']")
     WebElementFacade passwordTextField;
-    @FindBy(xpath = "//div[@class='form']/form/input")
+    @FindBy(xpath = "//input[@value='Login']")
     WebElementFacade loginButton;
     @FindBy(xpath = "//a[@href='../register']")
     WebElementFacade newUserButton;
