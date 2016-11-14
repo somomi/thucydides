@@ -18,24 +18,20 @@ public class UserBuilder {
     //refactored --> user Constructor added for not privileged user & date picker to register random user/developer
     // for username field
 
-    public static String registrationEventTime() {
-        Calendar currentDate = Calendar.getInstance();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss z");
-        return simpleDateFormat.format(currentDate.getTime());
-    }
-
     public static User getUser() {
-        User user = new User("user" + registrationEventTime(), "user");
+        User user = new User("user", "user");
         user.setFname("Aleksei");
         user.setLname("Chernyshev");
+        user.setRole("user");
         return user;
     }
 
 
     public static User getDeveloper() {
-        User developer = new User("developer" + registrationEventTime(), "developer");
+        User developer = new User("developer", "developer");
         developer.setFname("Aleksei_dev");
         developer.setLname("Chernyshev_dev");
+        developer.setRole("developer");
         return developer;
     }
 }

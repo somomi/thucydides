@@ -61,7 +61,7 @@ public class ApplicationBehaves {
     }
 
     @When ("user open application '$string' details")
-    public void open_application_details (String title) {
+    public void openApplicationDetails(String title) {
         applicationSteps.openApplicationDetails(title);
     }
 

@@ -30,7 +30,7 @@ public class NavigationSteps extends ScenarioSteps {
         loginPage.logoutFromHomePage();
     }
 
-//    @Step
+    @Step
     public void opensTheLoginPage() {
         loginPage.openLoginPage();
         loginPage.logoutFromHomePage();

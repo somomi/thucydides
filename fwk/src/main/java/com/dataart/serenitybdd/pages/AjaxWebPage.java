@@ -1,8 +1,12 @@
 package com.dataart.serenitybdd.pages;
 
 import net.serenitybdd.core.pages.PageObject;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by achernyshev on 11.11.2016.
@@ -27,15 +31,17 @@ public class AjaxWebPage extends PageObject {
         xInputField.sendKeys(X_INPUT);
         yInputField.clear();
         yInputField.sendKeys(Y_INPUT);
-    }
-
-    public void sumButtonClick() {
         sumButton.click();
     }
 
-    public void waitForResults (String result) {
-        waitForTextToAppear(result, 30000);
+    public void waitForResults (final String Result) {
+        WebDriver driver = new ChromeDriver();
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver wD) {
+                return resultPlaceholder.getText().trim().matches(Result);
+            }
+        });
+        driver.quit();
     }
-
 
 }

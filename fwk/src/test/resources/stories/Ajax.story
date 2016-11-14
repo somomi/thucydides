@@ -12,5 +12,5 @@ Then user waiting for result text '<result>'
 
 Examples:
 |first|second|result|
-|10|20|Result is: 30.0|
-|20|aaa|Result is: Incorrect data|
+|50.1|49.8|Result is: 99.9|
+|50.1|some text|Result is: Incorrect data|
