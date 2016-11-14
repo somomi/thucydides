@@ -14,9 +14,9 @@ public class EditApplicationWebPage extends PageObject {
 
     @FindBy(xpath = "//textarea[@name='description']")
     WebElementFacade descriptionTextField;
-    @FindBy(xpath = "//textarea[@name='description']")
+    @FindBy(xpath = "//select[@name='category']")
     WebElementFacade categorySelectField;
-    @FindBy(xpath = "//textarea[@name='description']")
+    @FindBy(xpath = "//form[@action='/edit']//input[@value='Update']")
     WebElementFacade updateButton;
 
 

@@ -10,11 +10,13 @@ import org.openqa.selenium.support.FindBy;
 
 public class AjaxWebPage extends PageObject {
 
-    @FindBy(xpath = "//input[@id='x']")
+    @FindBy(id = "x")
     WebElement xInputField;
-    @FindBy(xpath = "//input[@id='y']")
+    @FindBy(id = "y")
     WebElement yInputField;
-    @FindBy(xpath = "//button[@id='calc']")
+    @FindBy(id = "r")
+    private WebElement resultPlaceholder;
+    @FindBy(id = "calc")
     WebElement sumButton;
     @FindBy(id = "clear")
     private WebElement clearButton;
@@ -25,6 +27,10 @@ public class AjaxWebPage extends PageObject {
         xInputField.sendKeys(X_INPUT);
         yInputField.clear();
         yInputField.sendKeys(Y_INPUT);
+    }
+
+    public void sumButtonClick() {
+        sumButton.click();
     }
 
     public void waitForResults (String result) {
