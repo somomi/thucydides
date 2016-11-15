@@ -24,9 +24,9 @@ public class ApplicationBuilder {
     public static Application newAppWithImages() {
         Application app = new Application("TestImages", "Test Description");
         app.setCategory("Fun");
-        File image = new File("./src/test/resources/images/image.jpg");
-        File icon = new File("./src/test/resources/images/icon.jpg");
+        File image = new File("/src/test/resources/images/image.jpg");
         app.setImage(image.getAbsolutePath());
+        File icon = new File("/src/test/resources/images/icon.jpg");
         app.setIcon(icon.getAbsolutePath());
         return app;
     }

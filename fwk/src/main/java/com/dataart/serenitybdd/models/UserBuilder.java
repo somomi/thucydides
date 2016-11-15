@@ -1,8 +1,5 @@
 package com.dataart.serenitybdd.models;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 /**
  * Created by achernyshev on 11.11.2016.
  */
@@ -14,9 +11,6 @@ public class UserBuilder {
         user.setLname("Petrov");
         return user;
     }
-
-    //refactored --> user Constructor added for not privileged user & date picker to register random user/developer
-    // for username field
 
     public static User getUser() {
         User user = new User("user", "user");
